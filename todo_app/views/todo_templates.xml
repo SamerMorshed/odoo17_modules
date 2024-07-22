@@ -1,0 +1,25 @@
+<odoo>
+    <template id="assets_backend" name="todo assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/todo_app/static/src/js/todo_app.js"></script>
+        </xpath>
+    </template>
+    <template id="assets_qweb" name="todo qweb" inherit_id="web.assets_qweb">
+        <xpath expr="." position="inside">
+            <t t-name="todo_app.template" t-call="web.basic_layout">
+                <div>
+                    <input type="date" t-model="state.selectedDate" t-on-change="onDateChange"/>
+                    <input t-model="state.inputVal" placeholder="Add new todo"/>
+                    <button t-on-click="addTodo">Add</button>
+                    <ul>
+                        <li t-foreach="state.todos" t-as="todo" t-key="todo.id">
+                            <input type="checkbox" t-model="todo.is_done" t-on-change="toggleDone(todo)"/>
+                            <t t-esc="todo.name"/>
+                            <span t-esc="todo.date"/>
+                        </li>
+                    </ul>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

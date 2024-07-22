@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="todo_task_own_only" model="ir.rule">
+            <field name="name">User Only Todo Tasks</field>
+            <field name="model_id" ref="todo_app.model_todo_task"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="todo_task_all" model="ir.rule">
+            <field name="name">Manager All Todo Tasks</field>
+            <field name="model_id" ref="todo_app.model_todo_task"/>
+            <field name="domain_force">[]</field>
+            <field name="groups" eval="[(4, ref('group_todo_manager'))]"/>
+        </record>
+    </data>
+</odoo>
