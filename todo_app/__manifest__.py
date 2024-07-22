@@ -1,5 +1,5 @@
 {
-    'name': 'ToDo App',
+    'name': 'ToDo Application',
     'version': '1.0',
     'summary': 'Simple ToDo Application',
     'depends': ['web'],
